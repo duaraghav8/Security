@@ -7,6 +7,7 @@ ANSWER: just how printf () normally works. printf takes the first argument (the 
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 int main (int argc, char *argv []) {
 	__asm__ __volatile__ (
 		"pushq %rsi\n\t"
