@@ -13,14 +13,17 @@ The exploits run successfully on a 32-bit machine without the DEP feature. The 6
 1. For generating Debugger Information:
 
 **gcc FILENAME.c -ggdb -o EXECUTABLE_NAME**
+
 **g++ FILENAME.cpp -ggdb -o EXECUTABLE_NAME**
 
 2. For normal Compilation:
 
 **gcc FILENAME.s -o EXECUTABLE_NAME**
+
 **g++ FILENAME.cpp -o EXECUTABLE_NAME**
 
 example:
 
 gcc format_string_2.s -ggdb -o fs2
+
 g++ scanner.cpp -o scanner
