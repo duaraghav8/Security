@@ -22,6 +22,7 @@ bool tcp_con (int& port) {
 	link.sin_port = htons (port);
 
 	if (connect (sock, (struct sockaddr *) &link, sizeof (link)) == 0) {
+		//a work-around for the services which expect the client to initiate the conversation. We are not interested in sending any messages but we realize that we have connected to the service, so we close () the connection
 		if (port == 631 || port == 587 || port == 80 || port == 25) {
 			close (sock);
 			sockClosed = true;
