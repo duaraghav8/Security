@@ -1,0 +1,2 @@
+A simple TCP connect () based Port scanner.
+Returns the open port's number on the target machine and the service's name (or whatever messages the service initially sends)
