@@ -1,0 +1,6 @@
+raghav@raghav-ubuntu:~/Desktop$ ltrace ./mall
+__libc_start_main(0x40057d, 1, 0x7ffffb4aeaa8, 0x4005b0 <unfinished ...>
+malloc(40)                                                                                   = 0xed0010
+free(0xed0010)                                                                               = <void>
++++ exited (status 0) +++
+

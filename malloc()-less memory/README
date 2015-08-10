@@ -1,0 +1,32 @@
+So you used malloc () and free () very carefully and voi la! You have managed memory on your own. But what does that tell you anything about the memory and what messages were actually sent to the kernel?
+
+There is a set of functions underlying the basic library calls that you use for memory management in C. These are:
+1. brk ()
+2. sbrk ()
+3. mmap ()
+4. munmap ()
+
+Doug Lee and other guys basically used these functions (which actually communicate with the Kernel to manipulate memory) to give you a cleaner and easier-to-use interface for C memory management.
+
+So, why the wrapper on top of a wrapper?
+
+Because directly using those calls is risky. You have to handle all sorts of errors, make checks, keep track of what data is where blah blah.
+
+This means malloc () is only there for the greater good. Great! So why should you bother with knowing about the underlying stuff? Here's what you get:
+
+1. Knowledge about the memory architecture (Kernel Communication, Paging, Hierarchy, etc).
+
+2. An advantage over typical malloc (). You might be able to use these sys calls directly in your application (with little management), which can prove to be much more efficient than the malloc which aims to serve the general community.
+
+3. Swag.
+
+Quick Peek:
+
+Here's how you can quickly know the difference. Write a simple C program that uses malloc () and free (). Then run the program, first with ltrace and then with strace. ltrace is used to trace a program for all the library calls it is making. strace for all the system calls.
+2 samples are attached. malloc () is a library call, whereas the sys calls buried under malloc () can be seen from the output of strace!
+
+Yes, your whole life as a programmer has been a lie.
+
+
+
+You can read it in a bit more depth at http://www.inf.udec.cl/~leo/Malloc_tutorial.pdf
